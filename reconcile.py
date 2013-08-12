@@ -93,18 +93,21 @@ def search(raw_query):
             results = resp.json()
         except Exception, e:
             print e
+            continue
         for position, item in enumerate(results['response']['docs']):
             match = False
             score2 = 0
             name = item.get('auth')
             alternate = item.get('suggestall')
-            score = item.get('score')
             if (len(alternate) > 0):
                 alt = alternate[0]
             else:
                 alt = ''
             pid = item.get('idroot')
             normal_query = text.normalize(raw_query)
+            score_1 = fuzz.token_sort_ratio(normal_query, name)
+            score_2 = fuzz.token_sort_ratio(normal_query, alt)
+            score = max(score_1, score_2)
             if normal_query == text.normalize(name):
                 match = True
             elif normal_query == text.normalize(alt):
@@ -130,7 +133,8 @@ def search(raw_query):
                 break
     #Sort this list by score
     sorted_out = sorted(out, key=itemgetter('score'), reverse=True)
-    return sorted_out
+    #Refine only will handle top three matches.
+    return sorted_out[:2]
 
 
 @app.route("/fast-corporate/reconcile", methods=['POST', 'GET'])
