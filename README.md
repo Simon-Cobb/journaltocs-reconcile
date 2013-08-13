@@ -1,6 +1,6 @@
-A Google Refine reconciliation service that queries the API provided by the [JournalTOCs](http://www.journaltocs.ac.uk/api_help.php?subAction=journals) project.
+An OpenRefine reconciliation service that queries the API provided by the [JournalTOCs](http://www.journaltocs.ac.uk/api_help.php?subAction=journals) project.
 
-You will need to registor for the api at http://www.journaltocs.ac.uk/api_help.php?subAction=journals.
+You will need to register for the api at http://www.journaltocs.ac.uk/api_help.php?subAction=journals.
 
 Run as:
 ~~~~
