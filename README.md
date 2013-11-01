@@ -4,7 +4,7 @@ You will need to register for the api at http://www.journaltocs.ac.uk/api_help.p
 
 Run as:
 ~~~~
-$ python reconcile.py python reconcile.py --debug -u your_api_email@none.com
+$ python reconcile.py --debug -u your_api_email@none.com
 ~~~~
 
 Michael Stephens wrote a [demo reconcilliation service](https://github.com/mikejs/reconcile-demo) that this code is based on.
